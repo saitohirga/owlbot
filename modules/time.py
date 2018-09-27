@@ -19,7 +19,7 @@ client.long_help(cmd=cmd_name, mapping=detailed_help)
 @client.command(trigger=cmd_name,
 				aliases=[])  # aliases is a list of strs of other triggers for the command
 async def time(command: str, message: discord.Message):
-	await message.channel.send(f"Just for you to know the date and time is " + str(timern))
+	await message.channel.send(f"Heya! The Date and Time is " + str(timern))
 	return
 
 
