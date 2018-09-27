@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo git pull
-sudo docker stop owl
-sudo docker rm owl
-sudo docker build -t owl .
-sudo docker run -d --name owl owl
+sudo docker stop ob
+sudo docker rm ob
+sudo docker build -t ob .
+sudo docker run -d --name ob ob
