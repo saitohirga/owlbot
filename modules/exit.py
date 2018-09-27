@@ -27,7 +27,7 @@ async def command(command: str, message: discord.Message):
 		try:
 			await message.add_reaction("❌")
 			if message.author.id == shutdown_easter_egg_user:
-				await message.channel.send("*hehehe*\n\nCan't fool me! >:3")
+				await message.channel.send("*hehehe*\n\nYOU CAN NEVER FOOL ME! >:3")
 		except:
 			pass
 		finally:
