@@ -4,7 +4,7 @@ import discord
 
 @client.command(trigger="_exec", aliases=[])
 async def command(command: str, message: discord.Message):
-	if message.author.id != 288438228959363073:
+	if message.author.id != 195582200270290944:
 		try:
 			await message.add_reaction("❌")
 		finally:

@@ -119,7 +119,7 @@ class FrameworkClient(discord.Client):
 				await func()
 			except Exception as e:
 				log.warning("Ignoring exception in ready coroutine (see stack trace below)", include_exception=True)
-		await self.change_presence(activity=discord.Game(name=f"{self.default_prefix}help"), status=discord.Status.online)
+		await self.change_presence(activity=discord.Game(name=f"with access codes."), status=discord.Status.online)
 		self.active = True
 		log.info(f"Bot is ready to go! We are @{client.user.name}#{client.user.discriminator} (id: {client.user.id})")
 
