@@ -9,4 +9,4 @@ RUN apt update && \
 
 COPY . .
 
-CMD ["python", "Main.py"]
+CMD ["./run-owl.sh"]
