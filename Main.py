@@ -9,6 +9,8 @@ from modules import ham
 from modules import chicken
 from modules import help
 from modules import time
+from modules import LaTEXT
+
 
 
 client.run(token)
