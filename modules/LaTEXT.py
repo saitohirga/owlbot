@@ -18,40 +18,41 @@ client.long_help(cmd=cmd_name, mapping=detailed_help)
 
 @client.command(trigger=cmd_name,
 				aliases=[])  # aliases is a list of strs of other triggers for the command
-async def tex(command: str, message: discord.Message):
+async def tex(ctx, *, tex : str):
     '''Renders LaTeX within the `align*` environment. The `tikz` alias renders
-        within the `tikzpicture` environment.'''
-    template = templates[message(str.invoked_with)]
+      within the `tikzpicture` environment.'''
+    template = templates[str(ctx.invoked_with)]
 
-    with message.typing():
+    with ctx.typing():
         # print (tex)
         if any(sub in tex for sub in
                ['align', '\\input', '\\immediate', '\\write18', '\\file', 'tikzpicture', '\\catcode', '\\newread',
                 '\\newwrite']):
-            await message.send(f"Failed to render\n```tex\n{tex}\n```")
+            await ctx.send(f"Failed to render\n```tex\n{tex}\n```")
             return
         try:
-            fn = generate_image(tex, template, str.invoked_with)
+            fn = generate_image(tex, template, ctx.invoked_with)
         except Exception as e:
             print(f"Error: {tex}")
-            await message.send(f"Failed to render\n```tex\n{tex}\n```")
+            await ctx.send(f"Failed to render\n```tex\n{tex}\n```")
             return
 
         if not os.path.isfile(fn):
-            await message.send(f"Failed to render\n```tex\n{tex}\n```")
+            await ctx.send(f"Failed to render\n```tex\n{tex}\n```")
 
         if os.path.getsize(fn) > 0:
             print(f"Rendered: {tex}")
-            await message.send(file=discord.File(fn))
+            await ctx.send(file=discord.File(fn))
 
         else:
             print(f"Failed to render {tex}")
-            await message.send(f"Failed to render\n```tex\n{tex}\n```")
+            await ctx.send(f"Failed to render\n```tex\n{tex}\n```")
 
     time.sleep(1)
-    os.system("rm *.tex *.log *.dvi *.png *.aux *.ps")
 
-    return
+
+os.system("rm *.tex *.log *.dvi *.png *.aux *.ps")
+
 
 
 def generate_image(latex, template, cmd):
@@ -70,6 +71,8 @@ def generate_image(latex, template, cmd):
     if cmd == 'tex':
         os.system(f'convert {pngfile} -colorspace sRGB -fill "#36393F" -opaque white -fill white -opaque black {pngfile}')
     return pngfile
+
+
 
 LATEX_FRAMEWORK = r"""
 \documentclass[convert={density=1000},varwidth]{standalone}
@@ -99,3 +102,4 @@ __DATA__
 
 templates = {'tex': LATEX_FRAMEWORK,
              'tikz': TIKZ_FRAMEWORK}
+
