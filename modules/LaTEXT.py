@@ -21,32 +21,32 @@ client.long_help(cmd=cmd_name, mapping=detailed_help)
 async def tex(command: str, message: discord.Message):
     '''Renders LaTeX within the `align*` environment. The `tikz` alias renders
         within the `tikzpicture` environment.'''
-    template = templates[str(str.invoked_with)]
+    template = templates[message(str.invoked_with)]
 
-    with str.typing():
+    with message.typing():
         # print (tex)
         if any(sub in tex for sub in
                ['align', '\\input', '\\immediate', '\\write18', '\\file', 'tikzpicture', '\\catcode', '\\newread',
                 '\\newwrite']):
-            await str.send(f"Failed to render\n```tex\n{tex}\n```")
+            await message.send(f"Failed to render\n```tex\n{tex}\n```")
             return
         try:
             fn = generate_image(tex, template, str.invoked_with)
         except Exception as e:
             print(f"Error: {tex}")
-            await str.send(f"Failed to render\n```tex\n{tex}\n```")
+            await message.send(f"Failed to render\n```tex\n{tex}\n```")
             return
 
         if not os.path.isfile(fn):
-            await str.send(f"Failed to render\n```tex\n{tex}\n```")
+            await message.send(f"Failed to render\n```tex\n{tex}\n```")
 
         if os.path.getsize(fn) > 0:
             print(f"Rendered: {tex}")
-            await str.send(file=discord.File(fn))
+            await message.send(file=discord.File(fn))
 
         else:
             print(f"Failed to render {tex}")
-            await str.send(f"Failed to render\n```tex\n{tex}\n```")
+            await message.send(f"Failed to render\n```tex\n{tex}\n```")
 
     time.sleep(1)
     os.system("rm *.tex *.log *.dvi *.png *.aux *.ps")
