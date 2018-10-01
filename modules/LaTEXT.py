@@ -17,8 +17,8 @@ client.long_help(cmd=cmd_name, mapping=detailed_help)
 
 
 @client.command(trigger=cmd_name,
-				aliases=[])  # aliases is a list of strs of other triggers for the command
-async def tex(message: discord.Message, *, tex : str):
+                aliases=[])  # aliases is a list of strs of other triggers for the command
+async def tex(command: str, message: discord.Message):
     '''Renders LaTeX within the `align*` environment. The `tikz` alias renders
       within the `tikzpicture` environment.'''
     template = templates[str(message.invoked_with)]
