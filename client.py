@@ -57,8 +57,8 @@ class FrameworkClient(discord.Client):
 	prefixes: List[str] = []
 	default_prefix: str = None
 	log_all_messages: bool = config.log_messages
-
-	_trace_timer: float = None
+	message_count = 0
+	command_count = 0
 
 	def __init__(self, *args, **kwargs) -> None:
 		self.first_execution: float = None
@@ -84,24 +84,24 @@ class FrameworkClient(discord.Client):
 		if config.debug:
 
 			if any([not asyncio.iscoroutinefunction(x) for x in self._ready_handlers]):
-				log.critical("not all ready functions are coroutines, this could cause things to stop working or a fatal exception to be raised")
-				raise HandlerError("not all ready functions are coroutines, this could cause things to stop working or a fatal exception to be raised")
+				log.critical("not all ready functions are coroutines")
+				raise HandlerError("not all ready functions are coroutines")
 
 			if any([not asyncio.iscoroutinefunction(x) for x in self._shutdown_handlers]):
-				log.critical("not all shutdown functions are coroutines, this could cause things to stop working or a fatal exception to be raised")
-				raise HandlerError("not all shutdown functions are coroutines, this could cause things to stop working or a fatal exception to be raised")
+				log.critical("not all shutdown functions are coroutines")
+				raise HandlerError("not all shutdown functions are coroutines")
 
 			if any([not asyncio.iscoroutinefunction(x) for x in self._message_handlers]):
-				log.critical("not all message handlers are coroutines, this could cause things to stop working or a fatal exception to be raised")
-				raise HandlerError("not all message handlers are coroutines, this could cause things to stop working or a fatal exception to be raised")
+				log.critical("not all message handlers are coroutines")
+				raise HandlerError("not all message handlers are coroutines")
 
 			if any([not asyncio.iscoroutinefunction(x) for x in self._member_join_handlers]):
-				log.critical("not all member join handlers are coroutines, this could cause things to stop working or a fatal exception to be raised")
-				raise HandlerError("not all member join handlers are coroutines, this could cause things to stop working or a fatal exception to be raised")
+				log.critical("not all member join handlers are coroutines")
+				raise HandlerError("not all member join handlers are coroutines")
 
 			if any([not asyncio.iscoroutinefunction(x) for x in self._member_leave_handlers]):
-				log.critical("not all member leave handlers are coroutines, this could cause things to stop working or a fatal exception to be raised")
-				raise HandlerError("not all member leave handlers are coroutines, this could cause things to stop working or a fatal exception to be raised")
+				log.critical("not all member leave handlers are coroutines")
+				raise HandlerError(f"not all member leave handlers are coroutines")
 
 			log.debug("all functions good to run (are coroutines)")
 
@@ -112,14 +112,13 @@ class FrameworkClient(discord.Client):
 	# d.py event triggers
 	# ==========
 
-
 	async def on_ready(self):
 		for func in self._ready_handlers:
 			try:
 				await func()
 			except Exception as e:
 				log.warning("Ignoring exception in ready coroutine (see stack trace below)", include_exception=True)
-		await self.change_presence(activity=discord.Game(name=f"with access codes."), status=discord.Status.online)
+		await self.change_presence(activity=discord.Game(name=f"{self.default_prefix}help"), status=discord.Status.online)
 		self.active = True
 		log.info(f"Bot is ready to go! We are @{client.user.name}#{client.user.discriminator} (id: {client.user.id})")
 
@@ -135,6 +134,7 @@ class FrameworkClient(discord.Client):
 		sys.exit(0)
 
 	async def on_message(self, message: discord.Message):
+		self.message_count += 1
 		log_message(message)
 		if not self.active:
 			return
@@ -185,7 +185,8 @@ class FrameworkClient(discord.Client):
 
 			async def new_cmd(command: str, message: discord.Message) -> None:
 				try:
-					await func(command, message)
+					self.command_count += 1
+					await func(command, message)  # Gateway back to usercode
 				except Exception:
 					stackdump = traceback.format_exc()
 					embed = discord.Embed(title="Internal error", description=f"There was an error processing the command. Here's the stack trace, if necessary (this is also recorded in the log):\n```{stackdump}```", colour=0xf00000)
