@@ -99,7 +99,5 @@ __DATA__
 \end{tikzpicture}
 \end{document}
 """
-
-templates = {'tex': LATEX_FRAMEWORK,
-             'tikz': TIKZ_FRAMEWORK}
+templates = {'tex': LATEX_FRAMEWORK}
 
