@@ -3,7 +3,7 @@ import discord
 import datetime
 
 
-cmd_name = "t"
+cmd_name = "timern"
 timern = datetime.datetime.now()
 client.basic_help(title=cmd_name, desc="Time right now!")
 
