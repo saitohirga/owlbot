@@ -3,7 +3,7 @@ import discord
 import random
 import time, os, re, shutil # tex
 
-cmd_name = "lt"
+cmd_name = "tex"
 
 client.basic_help(title=cmd_name, desc="LaTEXT in Discord, the horror.")
 
