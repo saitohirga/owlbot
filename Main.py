@@ -30,17 +30,17 @@ async def on_ready():
 
 @bot.command(aliases=['about'])
 async def info(ctx):
-    '''Shows info about QRM.'''
+    '''Shows info about OwlBot.'''
     with ctx.typing():
-        embed = discord.Embed(title='About QRM', description=bot.description, colour=blue)
-        embed = embed.add_field(name='Author', value='Galen Gold, KB6EE\n<@!200102491231092736> (GaiusAurus#2539)', inline=False)
-        embed = embed.add_field(name='Contributing', value='Check out the source on GitHub: https://github.com/young-amateurs-rc/qrmbot-discord', inline=False)
-        embed = embed.add_field(name='License', value='QRM is released under the BSD 2-Clause License', inline=False)
+        embed = discord.Embed(title='About OS', description=bot.description, colour=blue)
+        embed = embed.add_field(name='Author', value='Galen Gold & Saito', inline=False)
+        embed = embed.add_field(name='Contributing', value='Check out the source on GitHub: https://github.com/LFGSaito/owlbot', inline=False)
+        embed = embed.add_field(name='License', value='Owlsleys Slave is released under the BSD 2-Clause License', inline=False)
     await ctx.send(embed=embed)
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send(f'**Pong!** Current ping is {bot.latency*1000:.1f} ms')
+    await ctx.send(f'**Pong!** Current time to access access codes is {bot.latency*1000:.1f} ms')
 
 @bot.command(aliases=['h'])
 async def help(ctx):
