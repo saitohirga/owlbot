@@ -1,5 +1,3 @@
-import secrets
-
 import discord
 from discord.ext import commands
 import json
@@ -139,7 +137,8 @@ async def shutdown(ctx):
 
 
 #########################
-
+with open('secrets.json') as secrets_file:
+    secrets = json.load(secrets_file)
 
 WORDS = open('resources/words').read().lower().splitlines()
 
