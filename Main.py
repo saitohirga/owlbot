@@ -1,3 +1,4 @@
+import secrets
 
 import discord
 from discord.ext import commands
@@ -192,4 +193,3 @@ templates = {'tex': LATEX_FRAMEWORK,
 
 
 bot.run(secrets['token'])
-
