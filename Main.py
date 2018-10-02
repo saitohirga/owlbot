@@ -7,7 +7,7 @@ import random
 import time, os, re, shutil # tex
 
 logging.basicConfig(level=logging.INFO)
-pfx = 'O'
+pfx = '?'
 
 description = '''A bot with various useful FAU-related functions, written in Python.'''
 
