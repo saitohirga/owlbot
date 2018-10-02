@@ -53,7 +53,7 @@ async def help(ctx):
                 continue
             v = cmd.help
             if len(cmd.aliases) > 0:
-                v += '\n*Aliases:* Owl ' +\
+                v += '\n*Aliases:* owl ' +\
                     f', {pfx}'.join(cmd.aliases).rstrip(f', {pfx}')
             embed = embed.add_field(name=pfx+cmd.name, value=v, inline=False)
     await ctx.send(embed=embed)
