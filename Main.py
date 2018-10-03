@@ -140,7 +140,7 @@ async def shutdown(ctx):
 @bot.command()
 async def time(ctx):
     '''Lets people know the date and time right now. Also used in Opening and Closing command TBM'''
-    await ctx.message.channel.send(f"Heya! The Date and Time is " + str(timern))
+    await ctx.send(f"Heya! The Date and Time is " + str(timern))
     return
 
 
