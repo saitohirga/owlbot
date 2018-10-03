@@ -1,4 +1,4 @@
-FROM gorialis/discord.py:3.7-rewrite-extras
+FROM gorialis/discord.py:alpine-rewrite-extras
 
 WORKDIR /app
 
