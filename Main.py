@@ -3,7 +3,7 @@ from discord.ext import commands
 import json
 import logging
 import random
-
+import datetime
 import time, os, re, shutil # tex
 
 logging.basicConfig(level=logging.INFO)
@@ -15,6 +15,8 @@ description = '''A bot with various useful FAU-related functions, written in Pyt
 green = 0x2dc614
 red = 0xc91628
 blue = 0x2044f7
+
+timern = datetime.datetime.now()
 
 bot = commands.Bot(command_prefix=pfx, description=description, pm_help=True,
         case_insensitive=True)
@@ -134,6 +136,13 @@ async def shutdown(ctx):
             await ctx.message.add_reaction("❌")
         except:
             return
+
+@bot.command()
+async def time(ctx):
+    await ctx.message.channel.send(f"Heya! The Date and Time is " + str(timern))
+    return
+
+
 
 
 #########################
