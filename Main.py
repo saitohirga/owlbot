@@ -16,7 +16,7 @@ green = 0x2dc614
 red = 0xc91628
 blue = 0x2044f7
 
-timern = datetime.datetime.now()
+CT = datetime.now().strftime("%A %B %d, %Y | %H:%M:%S")
 
 bot = commands.Bot(command_prefix=pfx, description=description, pm_help=True,
         case_insensitive=True)
@@ -140,7 +140,7 @@ async def shutdown(ctx):
 @bot.command()
 async def time(ctx):
     '''Lets people know the date and time right now. Also used in Opening and Closing command TBM'''
-    await ctx.send(f"Heya! The Date and Time is " + str(timern))
+    await ctx.send(f"Heya! The Date and Time is " + str(CT))
     return
 
 
