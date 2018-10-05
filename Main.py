@@ -16,7 +16,7 @@ green = 0x2dc614
 red = 0xc91628
 blue = 0x2044f7
 
-CT = datetime.now().strftime("%A %B %d, %Y | %H:%M:%S")
+CT = datetime.datetime.now().strftime("%A %B %d, %Y | %H:%M:%S")
 
 bot = commands.Bot(command_prefix=pfx, description=description, pm_help=True,
         case_insensitive=True)
