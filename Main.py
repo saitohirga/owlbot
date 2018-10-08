@@ -4,7 +4,7 @@ import json
 import logging
 import random
 import datetime
-import time, os, re, shutil # tex
+import time, os
 
 logging.basicConfig(level=logging.INFO)
 pfx = 'owl '
