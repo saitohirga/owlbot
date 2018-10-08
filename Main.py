@@ -8,7 +8,7 @@ import time
 import os
 
 logging.basicConfig(level=logging.INFO)
-pfx = 'owl '
+pfx = 'lanetrain '
 
 description = '''A bot with various useful FAU-related functions, written in Python.'''
 
@@ -33,12 +33,12 @@ async def on_ready():
 
 @bot.command(aliases=['about'])
 async def info(ctx):
-    '''Shows info about OwlBot.'''
+    '''Shows info about Lane Kiffin.'''
     with ctx.typing():
-        embed = discord.Embed(title='About OS', description=bot.description, colour=blue)
+        embed = discord.Embed(title='About Lane Kiffin', description=bot.description, colour=blue)
         embed = embed.add_field(name='Author', value='Galen Gold & Saito', inline=False)
-        embed = embed.add_field(name='Contributing', value='Check out the source on GitHub: https://github.com/LFGSaito/owlbot', inline=False)
-        embed = embed.add_field(name='License', value='Owlsleys Slave is released under the BSD 2-Clause License', inline=False)
+        embed = embed.add_field(name='Contributing', value='Check out the source on GitHub: https://github.com/LFGSaito/LaneKiff', inline=False)
+        embed = embed.add_field(name='License', value='Lane Kiffin is released under the BSD 2-Clause License', inline=False)
     await ctx.send(embed=embed)
 
 @bot.command()
@@ -56,7 +56,7 @@ async def help(ctx):
                 continue
             v = cmd.help
             if len(cmd.aliases) > 0:
-                v += '\n*Aliases:* owl ' +\
+                v += '\n*Aliases:* lanetrain ' +\
                     f', {pfx}'.join(cmd.aliases).rstrip(f', {pfx}')
             embed = embed.add_field(name=pfx+cmd.name, value=v, inline=False)
     await ctx.send(embed=embed)
