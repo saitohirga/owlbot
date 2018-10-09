@@ -67,8 +67,8 @@ async def xkcd(ctx, num : str):
     await ctx.send('http://xkcd.com/' + num)
 
 @bot.command(aliases=['cof'])
-async def Coffee(ctx):
-    '''Coffee'''
+async def coffee(ctx):
+    '''coffee'''
     await ctx.send('HERE SOME COFFEE!!! '
                       'http://media.beliefnet.com/~/media/photos-with-attribution/food/coffeecreditshutterstockcom.jpg')
 
