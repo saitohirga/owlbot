@@ -8,7 +8,7 @@ import time
 import os
 
 logging.basicConfig(level=logging.INFO)
-pfx = 'lanetrain '
+pfx = 'ac '
 
 description = '''A bot with various useful FAU-related functions, written in Python.'''
 
@@ -29,16 +29,16 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
-    await bot.change_presence(activity=discord.Game(name='football.'))
+    await bot.change_presence(activity=discord.Game(name='with IClickers.'))
 
 @bot.command(aliases=['about'])
 async def info(ctx):
-    '''Shows info about Lane Kiffin.'''
+    '''Shows info about Access Code.'''
     with ctx.typing():
-        embed = discord.Embed(title='About Lane Kiffin', description=bot.description, colour=blue)
+        embed = discord.Embed(title='About Access Code', description=bot.description, colour=blue)
         embed = embed.add_field(name='Author', value='Galen Gold & Saito', inline=False)
-        embed = embed.add_field(name='Contributing', value='Check out the source on GitHub: https://github.com/LFGSaito/LaneKiff', inline=False)
-        embed = embed.add_field(name='License', value='Lane Kiffin is released under the BSD 2-Clause License', inline=False)
+        embed = embed.add_field(name='Contributing', value='Check out the source on GitHub: https://github.com/LFGSaito/accesscode', inline=False)
+        embed = embed.add_field(name='License', value='Access Code is released under the BSD 2-Clause License', inline=False)
     await ctx.send(embed=embed)
 
 @bot.command()
@@ -56,7 +56,7 @@ async def help(ctx):
                 continue
             v = cmd.help
             if len(cmd.aliases) > 0:
-                v += '\n*Aliases:* lanetrain ' +\
+                v += '\n*Aliases:* ac ' +\
                     f', {pfx}'.join(cmd.aliases).rstrip(f', {pfx}')
             embed = embed.add_field(name=pfx+cmd.name, value=v, inline=False)
     await ctx.send(embed=embed)
