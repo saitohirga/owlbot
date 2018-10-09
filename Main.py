@@ -29,7 +29,7 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
-    await bot.change_presence(activity=discord.Game(name='with IClickers.'))
+    await bot.change_presence(activity=discord.Game(name='owl help | IClickers!'))
 
 @bot.command(aliases=['about'])
 async def info(ctx):
