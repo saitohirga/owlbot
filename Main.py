@@ -66,6 +66,11 @@ async def xkcd(ctx, num : str):
     '''Look up an xkcd by number.'''
     await ctx.send('http://xkcd.com/' + num)
 
+@bot.command(aliases=['x'])
+async def xkcd(ctx):
+    '''Coffee'''
+    await ctx.send('HERE SOME COFFEE!!! '
+                      'http://media.beliefnet.com/~/media/photos-with-attribution/food/coffeecreditshutterstockcom.jpg')
 
 @bot.command(aliases=['ph', 'phoneticize', 'phoneticise', 'phone'])
 async def phonetics(ctx, *, msg : str):
