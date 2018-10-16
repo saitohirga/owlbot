@@ -135,7 +135,7 @@ async def restart(ctx):
 
 @bot.command()
 async def shutdown(ctx):
-    if any([str(x.id) in secrets['exitp'] for x in ctx.author.id]):
+    if any([int(x.id) in secrets['exitp'] for x in ctx.author.id]):
         await ctx.channel.send("Shutting down qrm...")
         os._exit(42)
     else:
