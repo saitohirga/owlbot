@@ -43,6 +43,7 @@ async def info(ctx):
 
 @bot.command()
 async def ping(ctx):
+    '''Lets you know how long it will be to access your access codes.'''
     await ctx.send(f'**Pong!** Current time to access access codes is {bot.latency*1000:.1f} ms')
 
 @bot.command(aliases=['h'])
