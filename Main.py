@@ -123,7 +123,7 @@ async def tex(ctx, *, tex : str):
 
 @bot.command()
 async def restart(ctx):
-    if any([str(x.id) in secrets['exit_role'] for x in ctx.author.roles]):
+    if any([str(x.id) in secrets['exitp'] for x in ctx.author.id]):
         await ctx.channel.send("Restarting qrm...")
         await bot.logout()
     else:
@@ -134,7 +134,7 @@ async def restart(ctx):
 
 @bot.command()
 async def shutdown(ctx):
-    if any([str(x.id) in secrets['exit_role'] for x in ctx.author.roles]):
+    if any([str(x.id) in secrets['exitp'] for x in ctx.author.id]):
         await ctx.channel.send("Shutting down qrm...")
         os._exit(42)
     else:
