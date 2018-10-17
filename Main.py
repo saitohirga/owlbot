@@ -73,6 +73,13 @@ async def coffee(ctx):
     await ctx.send('HERE SOME COFFEE!!! '
                       'http://media.beliefnet.com/~/media/photos-with-attribution/food/coffeecreditshutterstockcom.jpg')
 
+@bot.command(aliases=['wai'])
+async def whoami(ctx):
+    '''Who am I? Let find out'''
+    await ctx.send(' You are ' + ctx.author.id )
+
+
+
 @bot.command(aliases=['ph', 'phoneticize', 'phoneticise', 'phone'])
 async def phonetics(ctx, *, msg : str):
     '''Get phonetics for a word or phrase.'''
