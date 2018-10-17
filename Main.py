@@ -74,9 +74,10 @@ async def coffee(ctx):
                       'http://media.beliefnet.com/~/media/photos-with-attribution/food/coffeecreditshutterstockcom.jpg')
 
 @bot.command(aliases=['wai'])
-async def whoami(ctx):
+async def whoami(ctx, ident : str):
     '''Who am I? Let find out'''
-    await ctx.send(' You are ' + ctx.author.id )
+    ident = ctx.author.id
+    await ctx.send(' You are ' + ident) 
 
 
 
