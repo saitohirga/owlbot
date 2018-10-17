@@ -124,7 +124,7 @@ async def tex(ctx, *, tex : str):
 
 @bot.command()
 async def restart(ctx):
-    if any([str(x.id) in secrets['exitp'] for x in ctx.author.id]):
+    if any([int(x.id) in secrets['exitp'] for x in ctx.author.id]):
         await ctx.channel.send("Restarting qrm...")
         await bot.logout()
     else:
