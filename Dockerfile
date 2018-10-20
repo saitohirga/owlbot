@@ -1,4 +1,4 @@
-FROM gorialis/3.6.6-alpine-rewrite-extras
+FROM gorialis/alpine-rewrite-extras
 
 WORKDIR /app
 
