@@ -77,7 +77,7 @@ async def coffee(ctx):
 async def whoami(ctx, ident : str):
     '''Who am I? Let find out'''
     ident = ctx.author.id
-    await ctx.send(' You are ' + ident) 
+    await ctx.send(' You are ' + ident)
 
 
 
