@@ -41,6 +41,7 @@ async def on_ready():
     print('------')
     await bot.change_presence(activity=discord.Game(name='owl help | IClickers!'))
 
+
 @bot.event
 async def on_message(message):
         # make case-insensitive
@@ -55,6 +56,7 @@ async def on_message(message):
             await message.channel.send(bonk)
         elif message.content.startswith('boonk'):
             await message.channel.send(boonk)
+
 
 @bot.command(aliases=['about'])
 async def info(ctx):
