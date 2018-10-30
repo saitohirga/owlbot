@@ -41,6 +41,20 @@ async def on_ready():
     print('------')
     await bot.change_presence(activity=discord.Game(name='owl help | IClickers!'))
 
+@bot.event
+async def on_message(message):
+        # make case-insensitive
+        message.content = message.content.lower()
+
+        # get the bonks, boonks, and the oofs
+        # TODO: Make a thread that periodically saves the oof count
+        if message.content == 'oof':
+            config['oofs'] += 1
+            await message.channel.send('rip')
+        elif message.content == 'bonk':
+            await message.channel.send(bonk)
+        elif message.content.startswith('boonk'):
+            await message.channel.send(boonk)
 
 @bot.command(aliases=['about'])
 async def info(ctx):
@@ -268,22 +282,9 @@ boonk = (':regional_indicator_b: '
          ':regional_indicator_n: '
          ':regional_indicator_g:')
 
-
-@bot.event
-async def on_message(message):
-    # make case-insensitive
-    message.content = message.content.lower()
-
-    # get the bonks, boonks, and the oofs
-    # TODO: Make a thread that periodically saves the oof count
-    if message.content == 'oof':
-        config['oofs'] += 1
-        await message.channel.send('rip')
-    elif message.content == 'bonk':
-        await message.channel.send(bonk)
-    elif message.content.startswith('boonk'):
-        await message.channel.send(boonk)
 # Generate LaTeX locally. Is there such things as rogue LaTeX code?
+
+
 def generate_image(latex, template, cmd):
     num = str(random.randint(0, 2 ** 31))
     latex_file = num + '.tex'
