@@ -13,8 +13,8 @@ import json
 import logging
 import random
 from datetime import datetime, timedelta
-import time
 import os
+import time
 
 logging.basicConfig(level=logging.INFO)
 pfx = 'owl '
@@ -67,7 +67,7 @@ async def info(ctx):
         embed = embed.add_field(name='Author', value='Galen Gold & Saito', inline=False)
         embed = embed.add_field(name='Contributing', value='Check out the source on GitHub: https://github.com/LFGSaito/OwlBot', inline=False)
         embed = embed.add_field(name='License', value='Owlsleys Slave is released under the BSD 2-Clause License', inline=False)
-        embed = embed.add_field(name=' I have been up for' + calc_uptime())
+    # embed = embed.add_field(name=' I have been up for', value=calc_uptime())
     await ctx.send(embed=embed)
 
 
