@@ -12,7 +12,7 @@ from discord.ext import commands
 import json
 import logging
 import random
-import datetime
+from datetime import datetime, timedelta
 import time
 import os
 
@@ -20,13 +20,13 @@ logging.basicConfig(level=logging.INFO)
 pfx = 'owl '
 
 description = '''A bot with various useful FAU-related functions, written in Python.'''
-
+start_time = time.time()
 
 green = 0x2dc614
 red = 0xc91628
 blue = 0x2044f7
 
-CT = datetime.datetime.now().strftime("%A %B %d, %Y | %H:%M:%S")
+CT = datetime.now().strftime("%A %B %d, %Y | %H:%M:%S")
 
 bot = commands.Bot(command_prefix=pfx, description=description, pm_help=True,
         case_insensitive=True)
@@ -167,6 +167,68 @@ async def time(ctx):
     await ctx.send(f"Heya! The Date and Time is " + str(CT))
     return
 
+@bot.command()
+async def uptime(ctx):
+    '''Show uptime of Mr.Slave.'''
+    await ctx.send(calc_uptime())
+
+
+def calc_uptime():
+    up = str(timedelta(seconds=(time.time()-start_time)))
+
+    # parse it pretty-like
+    upsplit = up.split(',', 1)
+    if len(upsplit) == 1:
+        days = '0'
+    else:
+        days = upsplit[0].split()[0]
+        upsplit[0] = upsplit[1]
+
+    upsplit = upsplit[0].split(':')
+    if len(upsplit) != 3:
+        print('Something happened')
+        return ''
+
+    hours = upsplit[0]
+    minutes = upsplit[1]
+    if minutes[0] == '0':
+        minutes = minutes[1]
+    seconds = upsplit[2].split('.', 1)[0]
+    if seconds[0] == '0':
+        seconds = seconds[1]
+
+    # horribly complicated, but appeases my awful need for proper plurality
+
+    rets = ''
+    rets += f"{days} day{'' if days == '1' else 's'}, "
+    rets += f"{hours} hour{'' if hours == '1' else 's'}, "
+    rets += f"{minutes} minute{'' if minutes == '1' else 's'}, "
+    rets += f"{seconds} second{'' if seconds == '1' else 's'}"
+
+    return rets
+
+
+
+@bot.command()
+async def oofs(ctx):
+    '''Counts ammount of oofs.'''
+    await ctx.send(f"Number of oofs since last reboot: {config['oofs']}")
+
+
+htm_bonk = (':regional_indicator_b: '
+            ':regional_indicator_o: '
+            ':regional_indicator_n: '
+            ':regional_indicator_k:')
+
+htm_boonk = (':regional_indicator_b: '
+             ':regional_indicator_o: '
+             ':regional_indicator_o: '
+             ':regional_indicator_n: '
+             ':regional_indicator_k:     '
+             ':regional_indicator_g: '
+             ':regional_indicator_a: '
+             ':regional_indicator_n: '
+             ':regional_indicator_g:')
 
 
 
@@ -176,6 +238,41 @@ with open('secrets.json') as secrets_file:
 
 WORDS = open('resources/words').read().lower().splitlines()
 
+config = {}
+with open('config.json', 'r') as f:
+    config = json.load(f)
+    print('config loaded')
+
+bonk = (':regional_indicator_b: '
+        ':regional_indicator_o: '
+        ':regional_indicator_n: '
+        ':regional_indicator_k:')
+
+boonk = (':regional_indicator_b: '
+         ':regional_indicator_o: '
+         ':regional_indicator_o: '
+         ':regional_indicator_n: '
+         ':regional_indicator_k:     '
+         ':regional_indicator_g: '
+         ':regional_indicator_a: '
+         ':regional_indicator_n: '
+         ':regional_indicator_g:')
+
+
+@bot.event
+async def on_message(message):
+    # make case-insensitive
+    message.content = message.content.lower()
+
+    # get the bonks, boonks, and the oofs
+    # TODO: Make a thread that periodically saves the oof count
+    if message.content == 'oof':
+        config['oofs'] += 1
+        await message.channel.send('rip')
+    elif message.content == 'bonk':
+        await message.channel.send(bonk)
+    elif message.content.startswith('boonk'):
+        await message.channel.send(boonk)
 # Generate LaTeX locally. Is there such things as rogue LaTeX code?
 def generate_image(latex, template, cmd):
     num = str(random.randint(0, 2 ** 31))
