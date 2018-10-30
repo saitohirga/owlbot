@@ -32,6 +32,24 @@ bot = commands.Bot(command_prefix=pfx, description=description, pm_help=True,
         case_insensitive=True)
 bot.remove_command('help')
 
+@bot.event
+async def on_message(message):
+    # make case-insensitive
+    message.content = message.content.lower()
+
+    # get the bonks, boonks, and the oofs
+    # TODO: Make a thread that periodically saves the oof count
+    if message.content == 'oof':
+        config['oofs'] += 1
+        await message.channel.send('rip')
+    elif message.content == 'bonk':
+        await message.channel.send(bonk)
+    elif message.content.startswith('boonk'):
+        await message.channel.send(boonk)
+
+    # process everything else
+    else:
+        await bot.process_commands(message)
 
 @bot.event
 async def on_ready():
@@ -40,27 +58,6 @@ async def on_ready():
     print(bot.user.id)
     print('------')
     await bot.change_presence(activity=discord.Game(name='owl help | IClickers!'))
-
-config = {}
-with open('config_default.json', 'r') as f:
-    config = json.load(f)
-    print('config loaded')
-
-#@bot.event
-#async def on_message(message):
-#        # make case-insensitive
-#        message.content = message.content.lower()
-#
-#        # get the bonks, boonks, and the oofs
-#        # TODO: Make a thread that periodically saves the oof count
-#        if message.content == 'oof':
-#            config['oofs'] += 1
-#           await message.channel.send('rip')
-#        elif message.content == 'bonk':
-#            await message.channel.send(bonk)
-#        elif message.content.startswith('boonk'):
-#            await message.channel.send(boonk)
-
 
 @bot.command(aliases=['about'])
 async def info(ctx):
@@ -268,6 +265,10 @@ with open('secrets.json') as secrets_file:
 
 WORDS = open('resources/words').read().lower().splitlines()
 
+config = {}
+with open('config_default.json', 'r') as f:
+    config = json.load(f)
+    print('config loaded')
 
 bonk = (':regional_indicator_b: '
         ':regional_indicator_o: '
@@ -283,6 +284,7 @@ boonk = (':regional_indicator_b: '
          ':regional_indicator_a: '
          ':regional_indicator_n: '
          ':regional_indicator_g:')
+
 
 # Generate LaTeX locally. Is there such things as rogue LaTeX code?
 
