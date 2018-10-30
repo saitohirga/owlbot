@@ -239,7 +239,7 @@ with open('secrets.json') as secrets_file:
 WORDS = open('resources/words').read().lower().splitlines()
 
 config = {}
-with open('config.json', 'r') as f:
+with open('config_default.json', 'r') as f:
     config = json.load(f)
     print('config loaded')
 
