@@ -40,6 +40,7 @@ async def on_ready():
     print('------')
     await bot.change_presence(activity=discord.Game(name='owl help | IClickers!'))
 
+
 @bot.command(aliases=['about'])
 async def info(ctx):
     '''Shows info about Owlsley's Slave.'''
@@ -50,10 +51,12 @@ async def info(ctx):
         embed = embed.add_field(name='License', value='Owlsleys Slave is released under the BSD 2-Clause License', inline=False)
     await ctx.send(embed=embed)
 
+
 @bot.command()
 async def ping(ctx):
     '''Lets you know how long it will be to access your access codes.'''
     await ctx.send(f'**Pong!** Current time to access access codes is {bot.latency*1000:.1f} ms')
+
 
 @bot.command(aliases=['h'])
 async def help(ctx):
@@ -71,10 +74,12 @@ async def help(ctx):
             embed = embed.add_field(name=pfx+cmd.name, value=v, inline=False)
     await ctx.send(embed=embed)
 
+
 @bot.command(aliases=['x'])
 async def xkcd(ctx, num : str):
     '''Look up an xkcd by number.'''
     await ctx.send('http://xkcd.com/' + num)
+
 
 @bot.command(aliases=['cof'])
 async def coffee(ctx):
@@ -82,12 +87,12 @@ async def coffee(ctx):
     await ctx.send('HERE SOME COFFEE!!! '
                       'http://media.beliefnet.com/~/media/photos-with-attribution/food/coffeecreditshutterstockcom.jpg')
 
+
 @bot.command(aliases=['wai'])
 async def whoami(ctx):
     '''Who am I? Let find out'''
     ident = ctx.author.id
     await ctx.send(' You are ' + str(ident))
-
 
 
 @bot.command(aliases=['ph', 'phoneticize', 'phoneticise', 'phone'])
@@ -104,6 +109,7 @@ async def phonetics(ctx, *, msg : str):
             result += ' '
         embed = discord.Embed(title=f'Phonetics for {msg}', description=result.title(), colour=green)
     await ctx.send(embed=embed)
+
 
 @bot.command(aliases = ['tikz'])
 async def tex(ctx, *, tex : str):
@@ -139,6 +145,7 @@ async def tex(ctx, *, tex : str):
 
 # Special Commands
 
+
 @bot.command()
 async def restart(ctx):
     if any([int(ctx.id) in secrets['exitperson'] for ctx in ctx.author.id]):
@@ -149,6 +156,7 @@ async def restart(ctx):
             await ctx.message.add_reaction("❌")
         except:
             return
+
 
 @bot.command()
 async def shutdown(ctx):
@@ -161,11 +169,13 @@ async def shutdown(ctx):
         except:
             return
 
+
 @bot.command()
 async def time(ctx):
     '''Lets people know the date and time right now. Also used in Opening and Closing command TBM'''
     await ctx.send(f"Heya! The Date and Time is " + str(CT))
     return
+
 
 @bot.command()
 async def uptime(ctx):
@@ -206,7 +216,6 @@ def calc_uptime():
     rets += f"{seconds} second{'' if seconds == '1' else 's'}"
 
     return rets
-
 
 
 @bot.command()
