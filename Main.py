@@ -130,9 +130,17 @@ async def phonetics(ctx, *, msg : str):
         embed = discord.Embed(title=f'Phonetics for {msg}', description=result.title(), colour=green)
     await ctx.send(embed=embed)
 
+@bot.command()
+async def hungry(ctx):
+    '''Get hours for food places on campus.'''
+    embed = discord.Embed(title=discord.Embed.Empty, description=discord.Embed.Empty, colour=discord.Embed.Empty)
+    embed = embed.set_image(url="https://api.dineoncampus.com/files/images/ca23d1bf-edfd-4d49-8509-1953fcd99719.jpg")
+    await ctx.send(embed=embed)
+
 
 @bot.command()
 async def utc(ctx):
+    '''Time in UTC!'''
     s = str(datetime.utcnow())
     ss = s.strip().split()
     date = ss[0]
