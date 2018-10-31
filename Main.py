@@ -134,6 +134,7 @@ async def phonetics(ctx, *, msg : str):
 async def hungry(ctx):
     '''Get hours for food places on campus.'''
     embed = discord.Embed(title=discord.Embed.Empty, description=discord.Embed.Empty, colour=discord.Embed.Empty)
+    embed = embed.add_field(name='OH YEAH', value=' :dab: ')
     embed = embed.set_image(url="https://api.dineoncampus.com/files/images/ca23d1bf-edfd-4d49-8509-1953fcd99719.jpg")
     await ctx.send(embed=embed)
 
