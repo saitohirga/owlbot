@@ -17,16 +17,16 @@ import os
 import time
 
 logging.basicConfig(level=logging.INFO)
+start_time = time.time()
 pfx = 'owl '
 
+
 description = '''A bot with various useful FAU-related functions, written in Python.'''
-start_time = time.time()
 
 green = 0x2dc614
 red = 0xc91628
 blue = 0x2044f7
 
-CT = datetime.now().strftime("%A %B %d, %Y | %H:%M:%S")
 
 bot = commands.Bot(command_prefix=pfx, description=description, pm_help=True,
         case_insensitive=True)
@@ -51,6 +51,7 @@ async def on_message(message):
     else:
         await bot.process_commands(message)
 
+
 @bot.event
 async def on_ready():
     print('Logged in as')
@@ -67,7 +68,7 @@ async def info(ctx):
         embed = embed.add_field(name='Author', value='Galen Gold & Saito', inline=False)
         embed = embed.add_field(name='Contributing', value='Check out the source on GitHub: https://github.com/LFGSaito/OwlBot', inline=False)
         embed = embed.add_field(name='License', value='Owlsleys Slave is released under the BSD 2-Clause License', inline=False)
-    # embed = embed.add_field(name=' I have been up for', value=calc_uptime())
+        embed = embed.add_field(name=' I have been up for', value=calc_uptime())
     await ctx.send(embed=embed)
 
 
@@ -130,6 +131,20 @@ async def phonetics(ctx, *, msg : str):
     await ctx.send(embed=embed)
 
 
+@bot.command()
+async def utc(ctx):
+    s = str(datetime.utcnow())
+    ss = s.strip().split()
+    date = ss[0]
+    time = ss[1][0:8]
+
+    # send it
+    em = discord.Embed(title='Universal Coordinated Time',
+                       description=f'**Date:** {date}\n**Time:** {time}',
+                       color=0x00c0ff)
+    await ctx.send(embed=em)
+
+
 @bot.command(aliases = ['tikz'])
 async def tex(ctx, *, tex : str):
     '''Renders LaTeX within the `align*` environment. The `tikz` alias renders
@@ -188,17 +203,8 @@ async def shutdown(ctx):
         except:
             return
 
-
-@bot.command()
-async def time(ctx):
-    '''Lets people know the date and time right now. Also used in Opening and Closing command TBM'''
-    await ctx.send(f"Heya! The Date and Time is " + str(CT))
-    return
-
-
 @bot.command()
 async def uptime(ctx):
-    '''Show uptime of Mr.Slave.'''
     await ctx.send(calc_uptime())
 
 
@@ -285,7 +291,6 @@ boonk = (':regional_indicator_b: '
          ':regional_indicator_a: '
          ':regional_indicator_n: '
          ':regional_indicator_g:')
-
 
 # Generate LaTeX locally. Is there such things as rogue LaTeX code?
 
