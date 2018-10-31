@@ -105,7 +105,7 @@ async def xkcd(ctx, num : str):
 async def coffee(ctx):
     '''coffee'''
     await ctx.send('HERE SOME COFFEE!!! '
-                      'http://media.beliefnet.com/~/media/photos-with-attribution/food/coffeecreditshutterstockcom.jpg')
+    'http://media.beliefnet.com/~/media/photos-with-attribution/food/coffeecreditshutterstockcom.jpg')
 
 
 @bot.command(aliases=['wai'])
@@ -134,7 +134,7 @@ async def phonetics(ctx, *, msg : str):
 async def hungry(ctx):
     '''Get hours for food places on campus.'''
     embed = discord.Embed(title=discord.Embed.Empty, description=discord.Embed.Empty, colour=discord.Embed.Empty)
-    embed = embed.add_field(name='OH YEAH', value=' <:dab:459861613197918230> ')
+    embed = embed.add_field(name='OH YEAH', value=' <:dab:459861613197918230> <:FAU:458789171306168321> <:SG:458789477008015382>  ')
     embed = embed.set_image(url="https://api.dineoncampus.com/files/images/ca23d1bf-edfd-4d49-8509-1953fcd99719.jpg")
     await ctx.send(embed=embed)
 
