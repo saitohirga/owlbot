@@ -213,6 +213,7 @@ async def shutdown(ctx):
 
 @bot.command()
 async def uptime(ctx):
+    '''Let you know the uptime of the bot!'''
     await ctx.send(calc_uptime())
 
 
