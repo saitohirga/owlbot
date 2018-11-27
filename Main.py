@@ -153,39 +153,6 @@ async def utc(ctx):
                        color=0x00c0ff)
     await ctx.send(embed=em)
 
-
-@bot.command(aliases = ['tikz'])
-async def tex(ctx, *, tex : str):
-    '''Renders LaTeX within the `align*` environment. The `tikz` alias renders
-    within the `tikzpicture` environment.'''
-    template = templates[str(ctx.invoked_with)]
-
-    with ctx.typing():
-        #print (tex)
-        if any(sub in tex for sub in ['align', '\\input', '\\immediate','\\write18','\\file','tikzpicture','\\catcode','\\newread','\\newwrite']):
-            await ctx.send(f"Failed to render\n```tex\n{tex}\n```")
-            return
-        try:
-            fn = generate_image(tex, template, ctx.invoked_with)
-        except Exception as e:
-            print(f"Error: {tex}")
-            await ctx.send(f"Failed to render\n```tex\n{tex}\n```")
-            return
-
-        if not os.path.isfile(fn):
-            await ctx.send(f"Failed to render\n```tex\n{tex}\n```")
-
-        if os.path.getsize(fn) > 0:
-            print(f"Rendered: {tex}")
-            await ctx.send(file=discord.File(fn))
-
-        else:
-            print(f"Failed to render {tex}")
-            await ctx.send(f"Failed to render\n```tex\n{tex}\n```")
-
-    time.sleep(1)
-    os.system("rm *.tex *.log *.dvi *.png *.aux *.ps")
-
 # Special Commands
 
 
@@ -301,56 +268,5 @@ boonk = (':regional_indicator_b: '
          ':regional_indicator_a: '
          ':regional_indicator_n: '
          ':regional_indicator_g:')
-
-# Generate LaTeX locally. Is there such things as rogue LaTeX code?
-
-
-def generate_image(latex, template, cmd):
-    num = str(random.randint(0, 2 ** 31))
-    latex_file = num + '.tex'
-    dvi_file = num + '.dvi'
-    with open(latex_file, 'w') as tex:
-        latex = template.replace('__DATA__', latex)
-        tex.write(latex)
-        tex.flush()
-        tex.close()
-    os.system('latex -shell-escape -halt-on-error ' + latex_file + '</dev/null')
-    pngfile = num + '.png'
-    os.system(f'convert {pngfile} -trim {pngfile}')
-    os.system(f'convert {pngfile} -bordercolor white -border 25 {pngfile}')
-    if cmd == 'tex':
-        os.system(f'convert {pngfile} -colorspace sRGB -fill "#36393F" -opaque white -fill white -opaque black {pngfile}')
-    return pngfile
-
-
-LATEX_FRAMEWORK = r"""
-\documentclass[convert={density=1000},varwidth]{standalone}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{tikz}
-\begin{document}
-\begin{align*}
-__DATA__
-\end{align*}
-\end{document}
-"""
-
-TIKZ_FRAMEWORK = r"""
-\documentclass[convert={density=1000},varwidth]{standalone}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{pgfplots}
-\usepackage{tikz}
-\usepackage[siunitx]{circuitikz}
-\begin{document}
-\begin{tikzpicture}
-__DATA__
-\end{tikzpicture}
-\end{document}
-"""
-
-templates = {'tex': LATEX_FRAMEWORK,
-             'tikz': TIKZ_FRAMEWORK}
-
 
 bot.run(secrets['token'])
