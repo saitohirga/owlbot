@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-
+cd /home/saito/OwlBot/
 sudo git pull
 sudo docker stop ob
 sudo docker rm ob

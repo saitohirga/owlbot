@@ -58,7 +58,7 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
-    await bot.change_presence(activity=discord.Game(name='finals stress, and wishing of withdrawing from a class.'))
+    await bot.change_presence(activity=discord.Game(name='Is it spring already?'))
 
 @bot.command(aliases=['about'])
 async def info(ctx):
@@ -103,7 +103,7 @@ async def xkcd(ctx, num : str):
 
 @bot.command(aliases=['cof'])
 async def coffee(ctx):
-    '''coffee'''
+    '''coffee, this is for you Root!'''
     await ctx.send('HERE SOME COFFEE!!! '
     'http://media.beliefnet.com/~/media/photos-with-attribution/food/coffeecreditshutterstockcom.jpg')
 
@@ -135,7 +135,7 @@ async def hungry(ctx):
     '''Get hours for food places on campus.'''
     embed = discord.Embed(title=discord.Embed.Empty, description=discord.Embed.Empty, colour=discord.Embed.Empty)
     embed = embed.add_field(name='OH YEAH', value=' <:dab:459861613197918230> <:FAU:458789171306168321> <:SG:458789477008015382>  ')
-    embed = embed.set_image(url="https://api.dineoncampus.com/files/images/ca23d1bf-edfd-4d49-8509-1953fcd99719.jpg")
+    embed = embed.set_image(url="https://api.dineoncampus.com/files/images/ae0d9bcc-2d9a-454a-b109-ded7011592b5.png")
     await ctx.send(embed=embed)
 
 
