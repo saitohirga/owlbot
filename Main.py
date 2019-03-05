@@ -58,7 +58,7 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
     print('------')
-    await bot.change_presence(activity=discord.Game(name='Is it spring already?'))
+    await bot.change_presence(activity=discord.Game(name='Just got my midterm grades back, can this term just end?'))
 
 @bot.command(aliases=['about'])
 async def info(ctx):
