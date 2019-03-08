@@ -46,18 +46,16 @@ async def on_message(message):
         await message.channel.send(bonk)
     elif message.content.startswith('boonk'):
         await message.channel.send(boonk)
-
-    # process everything else
+    if (f"<@!{bot.user.id}>" in message.content) or (f"<@{bot.user.id}>" in message.content):
+        try:
+            await message.add_reaction(discord.utils.find(lambda x: x.id == 459861613197918230))
+        except Exception:
+            return
+      # process everything else
     else:
         await bot.process_commands(message)
 
-@bot.event
-async def ping_reaction(message):
-        if (f"<@!{bot.user.id}>" in message.content) or (f"<@{bot.user.id}>" in message.content):
-            try:
-                await message.add_reaction(discord.utils.find(lambda x: x.id == 459861613197918230))
-            except Exception:
-                return
+
 
 @bot.event
 async def on_ready():
