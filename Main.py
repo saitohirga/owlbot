@@ -46,11 +46,11 @@ async def on_message(message):
         await message.channel.send(bonk)
     elif message.content.startswith('boonk'):
         await message.channel.send(boonk)
-    if (f"<@!{bot.user.id}>" in message.content) or (f"<@{bot.user.id}>" in message.content):
-        try:
-            await message.add_reaction(discord.utils.find(lambda x: x.id == 459861613197918230))
-        except Exception:
-            return
+    #if (f"<@!{bot.user.id}>" in message.content) or (f"<@{bot.user.id}>" in message.content):
+    #    try:
+    #        await message.add_reaction(discord.utils.find(lambda x: x.id == 459861613197918230))
+   #     except Exception:
+    #        return
       # process everything else
     else:
         await bot.process_commands(message)
