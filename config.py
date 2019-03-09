@@ -26,11 +26,12 @@ boot_status = "dnd"
 
 # All the prefixes the bot will use. The first one in this list will be considered the default.
 prefixes = [
-	"cqdx ",
+	"owl ",
+	"owl",
 ]
 
 # A name for your bot
-bot_name = "Arby's"
+bot_name = "Owlsley's Slave"
 
 # Size of the bot's internal message cache. It may be sometimes useful to use the cache so
 # an option is given here to make it bigger. The default cache size in discord.py is 5000
