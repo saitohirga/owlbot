@@ -39,11 +39,11 @@ async def on_message(message):
 
     # get the bonks, boonks, and the oofs
     # TODO: Make a thread that periodically saves the oof count
-    if (f"<@!{bot.user.id}>" in message.content) or (f"<@{bot.user.id}>" in message.content):
+    if (f"<@!{'490987758479998986'}>" in message.content) or (f"<@{'490987758479998986'}>" in message.content):
         try:
-           await message.add_reaction(discord.utils.find(lambda x: x.id == 459861613197918230))
+            await message.add_reaction(discord.utils.find(lambda x: x.id == 459861613197918230))
         except Exception:
-         pass
+            pass
 
     if message.content == 'oof':
         config['oofs'] += 1
