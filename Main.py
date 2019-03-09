@@ -41,7 +41,7 @@ async def on_message(message):
 
     # get the bonks, boonks, and the oofs
     # TODO: Make a thread that periodically saves the oof count
-    if ("<@!490987758479998986>" in message.content) or ("<@490987758479998986>" in message.content):
+    if "<@490987758479998986>" in message.content:
         try:
             if ':Dab:' in message.content:
                 emoji = get(message.get_all_emojis(), name='Dab')
