@@ -32,6 +32,7 @@ bot = commands.Bot(command_prefix=pfx, description=description, pm_help=True,
         case_insensitive=True)
 bot.remove_command('help')
 
+
 @bot.event
 async def on_message(message):
     # make case-insensitive
