@@ -43,9 +43,7 @@ async def on_message(message):
     # TODO: Make a thread that periodically saves the oof count
     if "<@490987758479998986>" in message.content:
         try:
-            if ':Dab:' in message.content:
-                emoji = get(message.get_all_emojis(), name='Dab')
-                await message.add_reaction(message, emoji)
+                await message.add_reaction(message, '')
         except Exception:
             pass
 
