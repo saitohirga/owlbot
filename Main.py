@@ -40,7 +40,7 @@ async def on_message(message):
 
     # get the bonks, boonks, and the oofs
     # TODO: Make a thread that periodically saves the oof count
-    if (f"<@!490987758479998986>" in message.content) or (f"<@490987758479998986>" in message.content):
+    if ("<@!490987758479998986>" in message.content) or ("<@490987758479998986>" in message.content):
         try:
             await message.add_reaction('<:Dab:459861613197918230>')
         except Exception:
