@@ -39,11 +39,12 @@ async def on_message(message):
 
     # get the bonks, boonks, and the oofs
     # TODO: Make a thread that periodically saves the oof count
-     if (f"<@!{bot.user.id}>" in message.content) or (f"<@{bot.user.id}>" in message.content):
+    if (f"<@!{bot.user.id}>" in message.content) or (f"<@{bot.user.id}>" in message.content):
         try:
-         await message.add_reaction(discord.utils.find(lambda x: x.id == 459861613197918230))
-         return
-          
+           await message.add_reaction(discord.utils.find(lambda x: x.id == 459861613197918230))
+        except Exception:
+         pass
+
     if message.content == 'oof':
         config['oofs'] += 1
         await message.channel.send('rip')
@@ -52,7 +53,6 @@ async def on_message(message):
     elif message.content.startswith('boonk'):
         await message.channel.send(boonk)
 
-    # process everything else
     else:
         await bot.process_commands(message)
 
