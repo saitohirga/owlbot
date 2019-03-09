@@ -9,6 +9,7 @@
 
 import discord
 from discord.ext import commands
+from discord.utils import get
 import json
 import logging
 import random
@@ -42,7 +43,9 @@ async def on_message(message):
     # TODO: Make a thread that periodically saves the oof count
     if ("<@!490987758479998986>" in message.content) or ("<@490987758479998986>" in message.content):
         try:
-            await message.add_reaction('<:Dab:459861613197918230>')
+            if ':Dab:' in message.content:
+                emoji = get(message.get_all_emojis(), name='Dab')
+                await message.add_reaction(message, emoji)
         except Exception:
             pass
 
