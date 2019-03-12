@@ -23,5 +23,6 @@ from modules import stats
 from modules import time
 from modules import units
 from modules import uwu
+from modules import help
 
 client.run(token)
