@@ -62,7 +62,7 @@ morse_lookup = {
 	"=": "  -...-",
 	"(": "  -.--.",
 	")": "  -.--.-",
-	" ": "  /",
+    " ": "  /",
 }
 
 
@@ -72,3 +72,4 @@ async def command(command: str, message: discord.Message):
 	new_str = "".join([morse_lookup.get(x, "  <?>") for x in string.upper()])
 	await message.channel.send(new_str)
 	return
+
