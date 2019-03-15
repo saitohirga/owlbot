@@ -25,5 +25,6 @@ from modules import units
 from modules import uwu
 from modules import help
 from modules import oof
+from modules import xkcd
 
 client.run(token)
