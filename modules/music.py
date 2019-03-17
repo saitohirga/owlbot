@@ -145,7 +145,7 @@ class Song:
 
 async def confirm(message, fallback: str = None) -> bool:
 	try:
-		await message.add_reaction("")
+		await message.add_reaction("459861613197918230")
 	except discord.errors.Forbidden:
 		pass
 	else:
@@ -324,7 +324,7 @@ async def command(command: str, message: discord.Message):
 				return
 			if not check_if_user_in_channel(vc.channel, message.author.id):
 				try:
-					await message.add_reaction("❌")
+					await message.add_reaction("458789477008015382")
 				except:
 					try:
 						await message.channel.send("Command refused: you are not in the target channel")
@@ -495,7 +495,7 @@ async def command(command: str, message: discord.Message):
 			if vc is not None:
 				if not check_if_user_in_channel(vc.channel, message.author):
 					await message.channel.send("Command refused: you are not in the target voice channel")
-					await message.add_reaction("❌")
+					await message.add_reaction("458789477008015382")
 					return
 			try:
 				vc.source.volume = new_vol
