@@ -10,7 +10,7 @@ async def bonk(message: discord.Message):
 				':regional_indicator_n: '
 				':regional_indicator_k:')
 
-	if message.content.lower().endswith("boonk"):
+	if message.content.lower().endswith("bonk"):
 		try:
 			await message.channel.send(htm_bonk)
 		except:  # that's fine, we don't care
