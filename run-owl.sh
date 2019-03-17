@@ -1,3 +1,8 @@
 #!/bin/bash
 
-python3.7 Main.py
+cd /home/saito/OwlBot/
+sudo git pull
+sudo docker stop ob
+sudo docker rm ob
+sudo docker build -t ob .
+sudo docker run -d --name ob ob
