@@ -19,7 +19,7 @@ client.long_help(cmd=cmd_name, mapping=detailed_help)
 @client.command(trigger=cmd_name,
 				aliases=[])  # aliases is a list of strs of other triggers for the command
 async def command(command: str, message: discord.Message):
- num = command[6:]
+ num = command[1:]
  await message.channel.send('http://xkcd.com/' + num)
 
  return
