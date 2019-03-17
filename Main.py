@@ -16,7 +16,6 @@ from modules import message_log
 from modules import morse
 from modules import music
 from modules import nou
-from modules import ntp
 from modules import ping
 from modules import pingreact
 from modules import stats
