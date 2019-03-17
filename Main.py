@@ -26,6 +26,7 @@ from modules import help
 from modules import oof
 from modules import xkcd
 from modules import boonk
+from modules import bonk
 
 
 client.run(token)
