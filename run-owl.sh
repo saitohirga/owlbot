@@ -1,8 +1,5 @@
 #!/bin/bash
 
-cd /home/saito/OwlBot/
-sudo git pull
-sudo docker stop ob
-sudo docker rm ob
-sudo docker build -t ob .
-sudo docker run -d --name ob ob
+while true; do
+    python Main.py || exit 1;
+done
