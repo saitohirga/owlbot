@@ -10,7 +10,7 @@ async def boonk(message: discord.Message):
 				 ':regional_indicator_o: '
 				 ':regional_indicator_n: '
 				 ':regional_indicator_k: ' 
-				
+				 ' '
 				 ':regional_indicator_g: '
 				 ':regional_indicator_a: '
 				 ':regional_indicator_n: '
