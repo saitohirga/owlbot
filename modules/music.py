@@ -7,7 +7,7 @@ from typing import Union, Dict, List
 import asyncio
 import discord
 import json
-import key
+#import key
 import log
 import os
 import random
@@ -286,9 +286,9 @@ async def command(command: str, message: discord.Message):
 		await message.channel.send("Sorry, but the internal Opus library required for voice support was not loaded for whatever reason, and music functionality will not work.")
 		return
 
-	if message.author.id in key.music_blacklist:
-		await message.channel.send("Command refused: You are not permitted to use this command")
-		return
+#	if message.author.id in key.music_blacklist:
+#		await message.channel.send("Command refused: You are not permitted to use this command")
+#		return
 
 	parts = command.split(" ")
 	# parts: music subcmd args args args
