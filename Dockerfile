@@ -17,4 +17,4 @@ RUN sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin
 
 COPY . .
 
-CMD ["python3 Main.py"]
+CMD ["./run-owl.sh"]
