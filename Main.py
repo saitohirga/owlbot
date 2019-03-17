@@ -27,6 +27,7 @@ from modules import oof
 from modules import xkcd
 from modules import boonk
 from modules import bonk
+from modules import phonetics
 
 
 client.run(token)
