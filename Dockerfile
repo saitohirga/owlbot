@@ -12,7 +12,8 @@ RUN sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin
  cd ntp-4.2.8p13 && \
  ./configure && \
  make && \
- sudo make install
+ sudo make install && \
+ sudo ntpd
 
 
 COPY . .
