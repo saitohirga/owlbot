@@ -7,7 +7,6 @@ from typing import Union, Dict, List
 import asyncio
 import discord
 import json
-#import key
 import log
 import os
 import random
