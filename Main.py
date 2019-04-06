@@ -74,7 +74,8 @@ from modules import bonk
 # noinspection PyUnresolvedReferences
 
 from modules import phonetics
+# noinspection PyUnresolvedReferences
 
-oofs = 0
+from modules import oofs
 
 client.run(token)

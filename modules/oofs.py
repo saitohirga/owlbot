@@ -1,7 +1,7 @@
 from client import client
 
 import discord
-import Main
+from modules import oof
 
 cmd_name = "oofs"
 
@@ -19,6 +19,6 @@ client.long_help(cmd=cmd_name, mapping=detailed_help)
 @client.command(trigger=cmd_name,
 				aliases=[])  # aliases is a list of strs of other triggers for the command
 async def command(command: str, message: discord.Message):
-	await message.channel.send(Main.oofs)
+	await message.channel.send(oof.oofs)
 
 	return
