@@ -75,5 +75,6 @@ from modules import bonk
 
 from modules import phonetics
 
+oofs = 0
 
 client.run(token)
