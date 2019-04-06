@@ -9,10 +9,11 @@ RUN sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin
  sudo pip3 install feedparser markovify && \
  sudo apt-get update && \
  sudo apt-get install units -y && \
- cd ntp-4.2.8p13 && \
+ cd /app/ntp-4.2.8p13 && \
  ./configure && \
  make && \
  sudo make install && \
+ cd /app && \
  sudo ntpd
 
 
