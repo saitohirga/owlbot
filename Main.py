@@ -47,9 +47,7 @@ from modules import pingreact
 # noinspection PyUnresolvedReferences
 
 from modules import stats
-# noinspection PyUnresolvedReferences
 
-from modules import time
 # noinspection PyUnresolvedReferences
 
 from modules import units
