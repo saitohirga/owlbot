@@ -1,4 +1,4 @@
-FROM gorialis/discord.py:3.6-stretch-extras
+FROM ggorialis/discord.py:3.7-extras
 
 WORKDIR /app
 
