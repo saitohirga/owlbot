@@ -7,6 +7,7 @@ from typing import Union, Dict, List
 import asyncio
 import discord
 import json
+import key
 import log
 import os
 import random
@@ -144,7 +145,7 @@ class Song:
 
 async def confirm(message, fallback: str = None) -> bool:
 	try:
-		await message.add_reaction("Dab:459861613197918230")
+		await message.add_reaction("")
 	except discord.errors.Forbidden:
 		pass
 	else:
@@ -285,9 +286,9 @@ async def command(command: str, message: discord.Message):
 		await message.channel.send("Sorry, but the internal Opus library required for voice support was not loaded for whatever reason, and music functionality will not work.")
 		return
 
-#	if message.author.id in key.music_blacklist:
-#		await message.channel.send("Command refused: You are not permitted to use this command")
-#		return
+	if message.author.id in key.music_blacklist:
+		await message.channel.send("Command refused: You are not permitted to use this command")
+		return
 
 	parts = command.split(" ")
 	# parts: music subcmd args args args
@@ -323,7 +324,7 @@ async def command(command: str, message: discord.Message):
 				return
 			if not check_if_user_in_channel(vc.channel, message.author.id):
 				try:
-					await message.add_reaction("SG:459861613197918230")
+					await message.add_reaction("❌")
 				except:
 					try:
 						await message.channel.send("Command refused: you are not in the target channel")
@@ -494,7 +495,7 @@ async def command(command: str, message: discord.Message):
 			if vc is not None:
 				if not check_if_user_in_channel(vc.channel, message.author):
 					await message.channel.send("Command refused: you are not in the target voice channel")
-					await message.add_reaction("SG:459861613197918230")
+					await message.add_reaction("❌")
 					return
 			try:
 				vc.source.volume = new_vol
