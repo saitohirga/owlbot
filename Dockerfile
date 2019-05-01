@@ -7,7 +7,7 @@ RUN sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin
  sudo pip3 uninstall youtube-dl -y && \
  sudo pip3 install feedparser markovify youtube-dl && \
  sudo apt-get update && \
- sudo apt-get install units ffmpeg -y
+ sudo apt-get install units -y
 
 
 
