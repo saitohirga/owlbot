@@ -7,8 +7,6 @@ RUN sudo pip3 uninstall youtube-dl -y && \
  sudo apt-get update && \
  sudo apt-get install units -y
 
-
-
 COPY . .
 
 CMD ["./run-owl.sh"]
