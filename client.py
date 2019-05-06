@@ -120,7 +120,7 @@ class FrameworkClient(discord.Client):
 		else:
 			self.prefixes.append(f"<@{self.user.id}> ")
 			self.prefixes.append(f"<@!{self.user.id}> ")
-			self.boot_playing_msg = f"{self.default_prefix}help"
+			self.boot_playing_msg = "the sun! It's SUMMER! HELL YEAH!"
 
 		for func in self._ready_handlers:
 			try:
