@@ -120,7 +120,7 @@ class FrameworkClient(discord.Client):
 		else:
 			self.prefixes.append(f"<@{self.user.id}> ")
 			self.prefixes.append(f"<@!{self.user.id}> ")
-			self.boot_playing_msg = "the sun! It's SUMMER! HELL YEAH!"
+			self.boot_playing_msg = "Isekai Quartet, great anime."
 
 		for func in self._ready_handlers:
 			try:
