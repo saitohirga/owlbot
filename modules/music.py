@@ -17,7 +17,6 @@ import urllib
 import youtube_dl
 
 
-client.basic_help(title="music", desc="Handles music functionality within the bot.")
 detailed_help = {
 	"Usage": f"{client.default_prefix}music <subcommand> [args]",
 	"Arguments": "`subcommand` - subcommand to run\n`args` - (optional) arguments specific to the subcommand being run",
@@ -285,7 +284,11 @@ async def command(command: str, message: discord.Message):
 	if not voice_enable:
 		await message.channel.send("Sorry, but the internal Opus library required for voice support was not loaded for whatever reason, and music functionality will not work.")
 		return
-	
+
+	if message.author.id in key.music_blacklist:
+		await message.channel.send("Command refused: You are not permitted to use this command")
+		return
+
 	parts = command.split(" ")
 	# parts: music subcmd args args args
 
