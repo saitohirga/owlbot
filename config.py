@@ -45,4 +45,4 @@ message_cache_size = 50000
 
 # Used in modules/exit.py
 shutdown_user = 195582200270290944
-no_bpid_prefix =
+no_bpid_prefix = ""
