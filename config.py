@@ -44,11 +44,4 @@ message_cache_size = 50000
 # ================
 
 # Used in modules/exit.py
-shutdown_user = 
-
-# ================
-# Any other options specific to different instances of the framework should go down here.
-# ================
-
-# Used in modules/exit.py
-shutdown_user = 288438228959363073
+shutdown_user = 195582200270290944
