@@ -36,3 +36,19 @@ bot_name = "Owlsley's Slave"
 # Size of the bot's internal message cache. It may be sometimes useful to use the cache so
 # an option is given here to make it bigger. The default cache size in discord.py is 5000
 message_cache_size = 50000
+
+
+
+# ================
+# Any other options specific to different instances of the framework should go down here.
+# ================
+
+# Used in modules/exit.py
+shutdown_user = 
+
+# ================
+# Any other options specific to different instances of the framework should go down here.
+# ================
+
+# Used in modules/exit.py
+shutdown_user = 288438228959363073
