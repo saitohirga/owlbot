@@ -3,7 +3,7 @@ FROM gorialis/discord.py:3.8.0a3-stretch-master-extras
 WORKDIR /app
 
 RUN sudo pip3 uninstall youtube-dl -y && \
- sudo pip3 install feedparser markovify youtube-dl && \
+ sudo pip3 install markovify youtube-dl && \
  sudo apt-get update && \
  sudo apt-get install units -y
 
