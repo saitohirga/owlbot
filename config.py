@@ -10,7 +10,7 @@
 # Messages: 5
 # Debug: 6
 
-terminal_loglevel = 6
+terminal_loglevel = 5
 exc_to_stderr = True  # log warnings and above to stderr instead of stdout
 
 file_loglevel = 6
@@ -25,9 +25,11 @@ log_messages = True
 boot_status = "dnd"
 
 # All the prefixes the bot will use. The first one in this list will be considered the default.
+# no_bpid_prefix will disable the bot adding its own process ID should it be enabled.
+no_bpid_prefix = False
 prefixes = [
 	"owl ",
-	"owl",
+	"o",
 ]
 
 # A name for your bot
@@ -38,11 +40,9 @@ bot_name = "Owlsley's Slave"
 message_cache_size = 50000
 
 
-
 # ================
 # Any other options specific to different instances of the framework should go down here.
 # ================
 
 # Used in modules/exit.py
-shutdown_user = 195582200270290944
-no_bpid_prefix = ""
+shutdown_user = 288438228959363073
