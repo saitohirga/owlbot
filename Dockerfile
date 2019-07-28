@@ -1,4 +1,4 @@
-FROM gorialis/discord.py:3.8.0a3-stretch-master-extras
+FROM gorialis/discord.py:3.6-buster-master-extras
 
 WORKDIR /app
 
