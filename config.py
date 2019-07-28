@@ -29,7 +29,7 @@ boot_status = "dnd"
 no_bpid_prefix = False
 prefixes = [
 	"owl ",
-	"o",
+	"o ",
 ]
 
 # A name for your bot
