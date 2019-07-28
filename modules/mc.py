@@ -14,7 +14,7 @@ import socket
 import struct
 
 
-SERVER_URL = "mc.usu.xyz"  # Port is default 25565
+SERVER_URL = ""  # Port is default 25565
 COMMAND_TRIGGER = "mc"  # "mc" default
 
 # Following classes are forked/edited from Dinnerbone/mcstatus
