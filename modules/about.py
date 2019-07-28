@@ -18,7 +18,7 @@ client.long_help(cmd=cmd_name, mapping=detailed_help)
 
 @client.command(trigger=cmd_name, aliases=['a'])  # aliases is a list of strs of other triggers for the command
 async def return_bot_info(command: str, message: discord.Message):
-	owner = await client.fetch_user(604874303703351299)
+	owner = await client.fetch_user(195582200270290944)
 
 	python_version = f"Python {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}"
 	if sys.version_info == "alpha":
