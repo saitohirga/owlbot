@@ -79,4 +79,6 @@ from modules import phonetics
 
 from modules import oofs
 
+from modules import araara
+
 client.run(token)
