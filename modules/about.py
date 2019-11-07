@@ -21,17 +21,17 @@ async def return_bot_info(command: str, message: discord.Message):
 	owner = await client.fetch_user(195582200270290944)
 
 	python_version = f"Python {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}"
-	if sys.version_info == "alpha":
+	if sys.version_info[3] == "alpha":
 		python_version += f"a{sys.version_info.serial}"
-	if sys.version_info == "beta":
+	if sys.version_info[3] == "beta":
 		python_version += f"b{sys.version_info.serial}"
-	if sys.version_info == "candidate":
+	if sys.version_info[3] == "candidate":
 		python_version += f"rc{sys.version_info.serial}"
 
 	embed = discord.Embed(title=f"{client.bot_name} info", description=discord.Embed.Empty, color=0x404040)
 	embed = embed.add_field(name="Version", value=f"Framework version {client.__version__}\nBot version 1.1")
 	embed = embed.add_field(name="Creator", value=f"{owner.name}#{owner.discriminator}\nID {owner.id}\n{owner.mention}")
-	embed = embed.add_field(name="Github", value="`LFGSaito/OwlBot`\nhttps://www.github.com/lfgsaito/owlbot")
+	embed = embed.add_field(name="Github", value="`young-amateurs-rc/arbys`\nhttps://www.github.com/young-amateurs-rc/arbys")
 	embed = embed.add_field(name="Built with", value=f"Running on {python_version}\ndiscord.py library version {discord.__version__}\nntoskrnl-bot framework (`ntoskrnl4/ntoskrnl-bot`)")
 	embed = embed.add_field(name="Invite Link", value=discord.utils.oauth_url(client.user.id))
 	embed = embed.set_footer(text=datetime.datetime.utcnow().__str__())
