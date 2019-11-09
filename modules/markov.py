@@ -20,14 +20,14 @@ detailed_help = {
 client.long_help(cmd=cmd_name, mapping=detailed_help)
 
 forbidden_channels = [
-
+	473570993072504832
 ]
 
 
 async def get_user_markov(user: int, message: discord.Message, size: int, charlimit: int, attempts: int) -> Tuple[int, str]:
 	input_messages = [x for x in client._connection._messages if x.author.id == user]
 	await asyncio.sleep(0.1)
-	input_messages = [x for x in input_messages if x.guild.id != message.guild]
+	input_messages = [x for x in input_messages if getattr(x.guild,'id',-1) == message.guild.id]
 	await asyncio.sleep(0.1)
 	input_messages = [x for x in input_messages if x.channel.id not in forbidden_channels]
 	await asyncio.sleep(0.1)
@@ -80,7 +80,7 @@ async def command(parts: str, message: discord.Message):
 		await message.channel.send(embed=response)
 		return
 	except ValueError:
-		charlimit = 1500
+		charlimit = 2000
 
 	try:
 		attempts = parts.pop(parts.index("--attempts")+1)
@@ -93,7 +93,7 @@ async def command(parts: str, message: discord.Message):
 		await message.channel.send(embed=response)
 		return
 	except ValueError:
-		attempts = 25
+		attempts = 50
 
 	try:
 		size = parts.pop(parts.index("--size")+1)
@@ -149,12 +149,12 @@ async def command(parts: str, message: discord.Message):
 	if len(parts) > 1:
 
 		# get channel if it is one
-		c = client.get_channel(__common__.stripMentionsToID(parts[1]))
+		c = client.get_channel(__common__.strip_to_id(parts[1]))
 		if c is not None:
 			target = c
 			target_type = "channel"
 
-		u = client.get_user(__common__.stripMentionsToID(parts[1]))
+		u = client.get_user(__common__.strip_to_id(parts[1]))
 		if u is not None:
 			target = u
 			target_type = "user"
