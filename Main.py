@@ -81,4 +81,6 @@ from modules import oofs
 
 from modules import araara
 
+from modules import livepatch
+
 client.run(token)
