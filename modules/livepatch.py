@@ -20,7 +20,7 @@ detailed_help = {
 client.long_help("livepatch", detailed_help)
 
 permissible_users = [  # list of IDs permitted to use the command
-	288438228959363073
+	195582200270290944
 ]
 
 
