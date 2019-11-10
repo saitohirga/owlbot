@@ -83,4 +83,7 @@ from modules import araara
 
 from modules import livepatch
 
+from modules import modtools
+
+
 client.run(token)
