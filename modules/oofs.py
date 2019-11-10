@@ -19,6 +19,6 @@ client.long_help(cmd=cmd_name, mapping=detailed_help)
 @client.command(trigger=cmd_name,
 				aliases=[])  # aliases is a list of strs of other triggers for the command
 async def command(command: str, message: discord.Message):
-	await message.channel.send(modules.noofs.oofs)
+	await message.channel.send(modules.noofs.oofs, "since last reboot")
 
 	return
