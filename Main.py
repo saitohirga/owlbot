@@ -85,5 +85,7 @@ from modules import livepatch
 
 from modules import modtools
 
+from modules import antispambot
+
 
 client.run(token)
