@@ -26,7 +26,7 @@ boot_status = "dnd"
 
 # All the prefixes the bot will use. The first one in this list will be considered the default.
 # no_bpid_prefix will disable the bot adding its own process ID should it be enabled.
-no_bpid_prefix = False
+no_bpid_prefix = True
 prefixes = [
 	"owl ",
 ]
