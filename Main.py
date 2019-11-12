@@ -87,5 +87,6 @@ from modules import modtools
 
 from modules import antispambot
 
+from modules import join_leave_msgs
 
 client.run(token)
