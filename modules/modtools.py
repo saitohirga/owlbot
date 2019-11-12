@@ -55,7 +55,6 @@ try:
 except AttributeError:
     log.critical(f"FAU moderator role not found. Mod commands will raise an exception when run.")
 
-
 @client.command(trigger="lock", aliases=["l"])
 async def lock(command: str, message: discord.Message):
     if message.guild.id != 458765854624972811:
@@ -203,5 +202,3 @@ async def help_mods(command: str, message: discord.Message):
                                   "default 25). Maximum purge size is 100 messages.") 
     if admin_role in message.author.roles:
         await message.channel.send(embed=embed)
-    else:
-        await message.channel.send("Ur Not a Admin go Away.")
