@@ -31,7 +31,8 @@ client.long_help(cmd=cmd_name, mapping=detailed_help)
 async def readier():
 	def psutil_update_thread_loop(client):
 		while client.active:
-			# self_process.cpu_percent()  # not sure how to optimize this loop in another thread so we're going to comment it out and deal with it for now
+			# self_process.cpu_percent()  # not sure how to optimize this loop in another thread so we're going to
+			# comment it out and deal with it for now
 			psutil.cpu_percent(percpu=True)
 			time.sleep(5)
 
