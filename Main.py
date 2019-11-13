@@ -78,14 +78,23 @@ from modules import phonetics
 # noinspection PyUnresolvedReferences
 
 from modules import oofs
+# noinspection PyUnresolvedReferences
+
 
 from modules import araara
+# noinspection PyUnresolvedReferences
+
 
 from modules import livepatch
+# noinspection PyUnresolvedReferences
+
 
 from modules import modtools
+# noinspection PyUnresolvedReferences
+
 
 from modules import antispambot
+# noinspection PyUnresolvedReferences
 
 from modules import join_leave_msgs
 
