@@ -18,6 +18,7 @@ client.long_help(cmd=cmd_name, mapping=detailed_help)
 @client.command(trigger=cmd_name,
                 aliases=[])  # aliases is a list of strs of other triggers for the command
 async def command(message: discord.Message):
-    await message.channel.send("Not rats spotted in the caf as of today, if this changes DM Saito")
+    rat = 'No rats spotted in the caf as of today, if this changes DM Saito'
+    await message.channel.send(rat)
 
     return
