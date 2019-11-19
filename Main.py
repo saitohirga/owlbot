@@ -97,5 +97,8 @@ from modules import antispambot
 # noinspection PyUnresolvedReferences
 
 from modules import join_leave_msgs
+# noinspection PyUnresolvedReferences
+
+from modules import rat
 
 client.run(token)
