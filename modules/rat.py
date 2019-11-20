@@ -17,19 +17,14 @@ detailed_help = {
 client.long_help(cmd=cmd_name, mapping=detailed_help)
 
 datetimeFormat = '%Y-%m-%d %H:%M:%S.%f'
-date1 = '2016-04-16 10:01:28.585'
-date2 = '2016-03-10 09:56:28.067'
+date1 = '2019-11-18 12:25:34.000'
+date2 = datetime.datetime.today()
 diff = datetime.datetime.strptime(date1, datetimeFormat) \
        - datetime.datetime.strptime(date2, datetimeFormat)
 
-print("Difference:", diff)
-print("Days:", diff.days)
-print("Microseconds:", diff.microseconds)
-print("Seconds:", diff.seconds)
-
 @client.command(trigger=cmd_name,
                 aliases=[])  # aliases is a list of strs of other triggers for the command
-async def rat(command: str, message: discord.Message):
+async def rat(message: discord.Message):
     rats = f"No rats spotted in the caf as of today, if this changes DM Saito, time since last seen {diff}"
     await message.channel.send(rats)
     return
