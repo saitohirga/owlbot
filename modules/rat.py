@@ -17,8 +17,8 @@ detailed_help = {
 client.long_help(cmd=cmd_name, mapping=detailed_help)
 
 datetimeFormat = '%Y-%m-%d %H:%M:%S'
-date1 = '2019-11-18 12:25:34'
-date2 = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+date2 = '2019-11-18 12:25:34'
+date1 = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 diff = datetime.datetime.strptime(date1, datetimeFormat) - datetime.datetime.strptime(date2, datetimeFormat)
 
 @client.command(trigger=cmd_name,
