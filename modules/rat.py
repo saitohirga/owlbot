@@ -19,8 +19,7 @@ client.long_help(cmd=cmd_name, mapping=detailed_help)
 datetimeFormat = '%Y-%m-%d %H:%M:%S.%f'
 date1 = '2019-11-18 12:25:34.000'
 date2 = datetime.datetime.today()
-diff = datetime.datetime.strptime(date1, datetimeFormat) \
-       - datetime.datetime.strptime(date2, datetimeFormat)
+diff = datetime.datetime.strptime(date1, datetimeFormat) - datetime.datetime.strptime(date2, datetimeFormat)
 
 @client.command(trigger=cmd_name,
                 aliases=[])  # aliases is a list of strs of other triggers for the command
