@@ -2,7 +2,7 @@ from client import client
 
 import discord
 import datetime
-
+from time import gmtime, strftime
 
 cmd_name = "rat"
 
@@ -16,9 +16,9 @@ detailed_help = {
 }
 client.long_help(cmd=cmd_name, mapping=detailed_help)
 
-datetimeFormat = '%Y-%m-%d %H:%M:%S.%f'
-date1 = '2019-11-18 12:25:34.000'
-date2 = datetime.datetime.today()
+datetimeFormat = '%Y-%m-%d %H:%M:%S'
+date1 = '2019-11-18 12:25:34'
+date2 = strftime("%Y-%m-%d %H:%M:%S", gmtime())
 diff = datetime.datetime.strptime(date1, datetimeFormat) - datetime.datetime.strptime(date2, datetimeFormat)
 
 @client.command(trigger=cmd_name,
