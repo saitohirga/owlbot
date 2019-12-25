@@ -15,7 +15,7 @@ import traceback
 
 class FrameworkClient(discord.Client):
 	__version__ = "0.6"
-
+ 
 	_background_tasks: List[Callable[[], None]] = []
 	_ready_handlers: List[Callable[[], None]] = []
 	_shutdown_handlers: List[Callable[[], None]] = []
