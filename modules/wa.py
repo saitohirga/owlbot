@@ -98,7 +98,7 @@ async def WolframAlphaQuery(command: str, message: discord.Message):
                                     name="Full Wikipedia page",
                                     value=summary_pod['subpods'][0]['infos']['links']['url'])
 
-        embed = embed.set_footer(text="For feature or more info requests, please message ntoskrnl")
+        embed = embed.set_footer(text="For feature or more info requests, please message SaitoH")
         await message.channel.send(embed=embed)
 
     if not (results['success'] or results['error']):
