@@ -56,14 +56,12 @@ if client.is_ready():
 
 
 @client.ready
-async def set_mod_role(message: discord.Message):
+async def set_mod_role():
     global admin_role
     try:
         admin_role = admin_role = client.get_guild(458765854624972811).get_role(458767248367157278)
     except AttributeError:
-        log.critical(f"WTC mod role not found, oof")
-        await message.channel.send("Error not Admin")
-
+        log.critical(f"FAU mod role not found, oof")
         
 @client.command(trigger="lock", aliases=["l"])
 async def lock(command: str, message: discord.Message):
