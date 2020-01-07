@@ -52,14 +52,14 @@ client.long_help("purge", purge_help)
 
 admin_role = None
 if client.is_ready():
-    admin_role = client.get_guild(662417141080916001).get_guild(662419369682403336)
+    admin_role = client.get_guild(458765854624972811).get_role(458767248367157278)
 
 
 @client.ready
 async def set_mod_role():
     global admin_role
     try:
-        admin_role = admin_role = client.get_guild(662417141080916001).get_guild(662419369682403336)
+        admin_role = admin_role = client.get_guild(458765854624972811).get_role(458767248367157278)
     except AttributeError:
         log.critical(f"WTC mod role not found, oof")
 
