@@ -62,7 +62,8 @@ async def set_mod_role():
         admin_role = admin_role = client.get_guild(458765854624972811).get_role(458767248367157278)
     except AttributeError:
         log.critical(f"FAU mod role not found, oof")
-        
+
+
 @client.command(trigger="lock", aliases=["l"])
 async def lock(command: str, message: discord.Message):
     if message.guild.id != 458765854624972811:
@@ -186,27 +187,27 @@ async def help_mods(command: str, message: discord.Message):
                             value="When a person joins, information about them will be posted such as account name, "
                                   "ID, creation date, and the new member count. When a person leaves, information "
                                   "about them will be posted such as account name, ID, join date, and new member "
-                                  "count.") 
+                                  "count.")
     embed = embed.add_field(name="Name Autoban",
                             value="Users who attempt to join with `discord.gg` in their name will be autobanned upon "
                                   "joining. This is as a result of the indexing \"virus\" bots that spread around "
-                                  "Discord some time ago.") 
+                                  "Discord some time ago.")
     embed = embed.add_field(name="Ping Spam Autokick",
                             value="Users who spam too many pings will be automatically kicked as an "
                                   "anti-spambot/anti-raid measure. Criteria are either: (A) 30+ pings to a single "
-                                  "person within one minute, or (B) 8+ pings to 8 different people within one minute.") 
+                                  "person within one minute, or (B) 8+ pings to 8 different people within one minute.")
     embed = embed.add_field(name="Message and File Logger",
                             value="All messages and files that are sent are automatically saved and downloaded "
                                   "locally (up to 7 days for attachments). This can be used to log users that are "
-                                  "banned and inspect suspicious attachments.") 
+                                  "banned and inspect suspicious attachments.")
     embed = embed.add_field(name="Channel Locker",
                             value="In case of emergency/chaos, public channels can be locked to calm down chaos. "
                                   "`owl lock` and `owl unlock` can only be run in that target channels, "
                                   "and moderator-only channels cannot be locked/unlocked (attempting to unlock a "
-                                  "moderator-only channel would make it publicly accessible).") 
+                                  "moderator-only channel would make it publicly accessible).")
     embed = embed.add_field(name="Message Purge",
                             value="When necessary, recent messages in a channel can be purged with `owl purge [n]`, "
                                   "where `n` is the number of messages to delete including the command itself ("
-                                  "default 25). Maximum purge size is 100 messages.") 
+                                  "default 25). Maximum purge size is 100 messages.")
     if admin_role in message.author.roles:
         await message.channel.send(embed=embed)
