@@ -104,4 +104,6 @@ from modules import rat
 
 from modules import wa
 
+from modules import say
+
 client.run(token)
