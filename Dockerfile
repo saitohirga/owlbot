@@ -1,4 +1,4 @@
-FROM gorialis/discord.py:3.8.1-buster-master-extras
+FROM gorialis/discord.py:build2-3.8.1-buster
 
 WORKDIR /app
 
