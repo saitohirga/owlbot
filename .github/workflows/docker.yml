@@ -45,7 +45,6 @@ jobs:
           IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
           echo IMAGE_ID=$IMAGE_ID
           echo ::set-output name=image_id::$IMAGE_ID
-
           # Strip git ref prefix from version
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
           # Strip "v" prefix from tag name
