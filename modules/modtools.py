@@ -52,14 +52,14 @@ client.long_help("purge", purge_help)
 
 admin_role = None
 if client.is_ready():
-    admin_role = client.get_guild(458765854624972811).get_role(458767248367157278)
+    admin_role = client.get_guild(458765854624972811).get_role(458767248367157278), client.get_guild(458765854624972811).get_role(882726753074819124)
 
 
 @client.ready
 async def set_mod_role():
     global admin_role
     try:
-        admin_role = admin_role = client.get_guild(458765854624972811).get_role(458767248367157278)
+        admin_role = admin_role = client.get_guild(458765854624972811).get_role(458767248367157278), client.get_guild(458765854624972811).get_role(882726753074819124)
     except AttributeError:
         log.critical(f"FAU mod role not found, oof")
 
