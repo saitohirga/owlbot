@@ -1,6 +1,5 @@
 from client import client
-from key import token
-
+import data.key as token
 
 # To load new modules, copy/paste the line below, uncommented, with X filled in for the name of your file
 # from modules import X
