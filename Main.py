@@ -13,9 +13,6 @@ from modules import _debug
 from modules import about
 # noinspection PyUnresolvedReferences
 
-from modules import mc
-# noinspection PyUnresolvedReferences
-
 from modules import emoji_stats
 # noinspection PyUnresolvedReferences
 
