@@ -6,7 +6,7 @@ on:
   push:
     # Publish `master` as Docker `dev` image.
     branches:
-      - master
+      - framework
     # Publish `v*` tags as x.x.x images and as `latest`.
     tags:
       - v*
