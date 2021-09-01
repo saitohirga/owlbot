@@ -1,12 +1,26 @@
-FROM gorialis/discord.py:buster-master-extras
+FROM python:3.9-slim
 
+COPY . /app
 WORKDIR /app
 
-RUN sudo pip3 uninstall youtube-dl -y && \
- sudo pip3 install markovify youtube-dl psutil matplotlib  requests aiohttp wolframalpha discord.py[voice] && \
- sudo apt-get update && \
- sudo apt-get install units ntp -y
+ENV PYTHON_BIN python3
 
-COPY . .
-
-CMD ["./run-owl.sh"]
+RUN \
+    apt-get update && \
+    echo "**** install runtime packages ****" && \
+    apt-get install -y --no-install-recommends \
+        libcairo2 \
+        libjpeg62-turbo \
+        libxml2-dev \
+        libxslt-dev \
+        && \
+    echo "**** install pip packages ****" && \
+    pip3 install -U pip setuptools wheel && \
+    pip3 install -r requirements.txt && \
+    echo "**** clean up ****" && \
+    rm -rf \
+        /root/.cache \
+        /tmp/* \
+        /var/lib/apt/lists/*
+ 
+CMD ["/bin/sh", "run.sh", "--pass-errors", "--no-botenv"]
