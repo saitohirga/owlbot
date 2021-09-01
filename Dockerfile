@@ -23,4 +23,4 @@ RUN \
         /tmp/* \
         /var/lib/apt/lists/*
  
-CMD ["/bin/sh", "run.sh", "--pass-errors", "--no-botenv"]
+CMD ["/bin/sh", "run-owl.sh", "--pass-errors", "--no-botenv"]
